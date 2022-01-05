@@ -4,8 +4,11 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Support.UI;
+using System;
 using System.Configuration;
 using System.IO;
+using System.Threading;
 
 namespace TestProjectMsTest
 {
@@ -15,6 +18,10 @@ namespace TestProjectMsTest
         private static string browser = ConfigurationManager.AppSettings["browser"];
         public TestContext TestContext { get; set; }
         public  IWebDriver driver { get; set; }
+        public string MainWindowHandle { get; set; }
+        public string PopupWindowHandle { get; set; }
+        public IWebDriver PopupWebDriver { get; set; }
+
         [TestInitialize]
         public void Setup()
         {
@@ -56,6 +63,20 @@ namespace TestProjectMsTest
         {
             driver.Url = url;
         }
-
+        public  void InitializePopupDriver(IWebElement element)
+        {
+            try
+            {
+                MainWindowHandle = driver.CurrentWindowHandle;
+                PopupWindowFinder finder = new PopupWindowFinder(driver);
+                PopupWindowHandle = finder.Click(element);
+                Thread.Sleep(7000);
+                PopupWebDriver = driver.SwitchTo().Window(PopupWindowHandle);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Not able to initialize PopUp Driver", ex);
+            }
+        }
     }
 }

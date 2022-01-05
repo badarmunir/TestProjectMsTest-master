@@ -18,5 +18,7 @@ namespace TestProjectMsTest.PageObjects
             PageFactory.InitElements(webDriver, page);
             return page;
         }
+
+      
     }
 }
