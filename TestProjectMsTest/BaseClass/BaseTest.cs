@@ -14,7 +14,7 @@ namespace TestProjectMsTest
         private static string baseURL = ConfigurationManager.AppSettings["url"];
         private static string browser = ConfigurationManager.AppSettings["browser"];
         public TestContext TestContext { get; set; }
-        public  IWebDriver driver;
+        public  IWebDriver driver { get; set; }
         [TestInitialize]
         public void Setup()
         {
@@ -22,8 +22,8 @@ namespace TestProjectMsTest
             {
                 case "Chrome":
                     ChromeOptions option = new ChromeOptions();
-                    //option.AddArgument("-headless");
-                    //option.PageLoadStrategy = PageLoadStrategy.None;
+                    option.AddArgument("-headless");
+                    option.PageLoadStrategy = PageLoadStrategy.Eager;
                     driver = new ChromeDriver(option);
                     break;
                 case "IE":

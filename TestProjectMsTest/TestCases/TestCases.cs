@@ -19,7 +19,6 @@ namespace TestProjectMsTest
             .ClickPracticeForm();
             GetPages.GetPage<FormPage>(driver)
             .FillForm(data);
-            //Assert.AreEqual(form_page.elem_Submit_Text.GetTextfromInputField(), TestData.texttoverify);
             Assert.AreEqual(GetPages.GetPage<FormPage>(driver).elem_Submit_Text.Text, TestData.texttoverify);
         }
 
