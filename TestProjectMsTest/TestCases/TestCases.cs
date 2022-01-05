@@ -27,6 +27,7 @@ namespace TestProjectMsTest
         public void TestMethod2()
         {
 
+
             GetPages.GetPage<HomePage>(driver)
                   .NavigateToForm()
             .ClickPracticeForm();

@@ -11,6 +11,7 @@ namespace TestProjectMsTest.PageObjects
 {
     public static class GetPages
     {
+
         public static T GetPage<T>(this IWebDriver webDriver)
         {
             var page = (T)Activator.CreateInstance(typeof(T));
