@@ -27,12 +27,12 @@ namespace TestProjectMsTest
             return new SelectElement(element).AllSelectedOptions.SingleOrDefault().Text;
         }
 
-        //public static IWebElement SetAttribute(this IWebElement element, string name, string value)
-        //{
-        //    var driver = driver;
-        //    var jsExecutor = (IJavaScriptExecutor)driver;
-        //    jsExecutor.ExecuteScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, name, value);
-        //    return element;
-        //}
+        public static IWebElement SetAttribute(this IWebDriver driver,  IWebElement element, string name, string value)
+        {
+            var drivera = driver;
+            var jsExecutor = (IJavaScriptExecutor)drivera;
+            jsExecutor.ExecuteScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, name, value);
+            return element;
+        }
     }
 }

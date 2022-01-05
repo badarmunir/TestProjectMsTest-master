@@ -7,8 +7,6 @@ namespace TestProjectMsTest.PageObjects
 {
     class FormPage
     {
-
-
         [FindsBy(How = How.Id, Using = "firstName")]
         [CacheLookup]
         public IWebElement elem_Firstname { get; set; }
@@ -44,13 +42,11 @@ namespace TestProjectMsTest.PageObjects
         }
         public FormPage SetLastName(string lastName)
         {
-            //elem_Lastname.EnterText(lastName);
             elem_Lastname.SendKeys(lastName);
              return this;
         }
         public FormPage SetGenderMale()
         {
-           // elem_Gender_Male.Clicks();
             elem_Gender_Male.Click();
              return this;
         }
