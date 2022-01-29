@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using TestProjectMsTest.PageObjects;
 
 
@@ -13,7 +14,7 @@ namespace TestProjectMsTest
         public void TestMethod1()
         {
             TestUtils helper = new TestUtils();
-            ValueObjectData data = new ValueObjectData("fname", "lname", helper.GenerateNumber());
+            ValueObjectData data = new ValueObjectData("skip", "skip", helper.GenerateNumber());
             GetPages.GetPage<HomePage>(driver)
             .NavigateToForm()
             .ClickPracticeForm();
@@ -25,8 +26,6 @@ namespace TestProjectMsTest
         [TestMethod, TestCategory("Regression")]
         public void TestMethod2()
         {
-
-
             GetPages.GetPage<HomePage>(driver)
                   .NavigateToForm()
             .ClickPracticeForm();
@@ -50,6 +49,6 @@ namespace TestProjectMsTest
             Assert.AreEqual("true", GetPages.GetPage<FormPage>(driver).elem_Gender.GetAttribute("required"));
             Assert.AreEqual("true", GetPages.GetPage<FormPage>(driver).elem_UserNumber.GetAttribute("required"));
         }
-   
+
     }
 }

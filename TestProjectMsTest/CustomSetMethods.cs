@@ -12,11 +12,27 @@ namespace TestProjectMsTest
     {
         public static void EnterText(this IWebElement element, string value)
         {
-            element.SendKeys(value);
+            if(value == "skip")
+            {
+                Console.WriteLine("Skiping this Value");
+            }
+            else
+            {
+                element.SendKeys(value);
+            }
+        
         }
-        public static void Clicks(this IWebElement element )
+        public static void Clicks(this IWebElement element ,bool value = true)
         {
-            element.Click();
+            if(value == false)
+            {
+                Console.WriteLine("Skiping this Click");
+            }
+            else
+            {
+                element.Click();
+            }
+            
         }
         public static void SelectDropDown(this IWebElement element, string value)
         {

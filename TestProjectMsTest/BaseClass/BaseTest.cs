@@ -29,7 +29,7 @@ namespace TestProjectMsTest
             {
                 case "Chrome":
                     ChromeOptions option = new ChromeOptions();
-                    option.AddArgument("-headless");
+                   // option.AddArgument("-headless");
                     option.PageLoadStrategy = PageLoadStrategy.Eager;
                     driver = new ChromeDriver(option);
                     break;

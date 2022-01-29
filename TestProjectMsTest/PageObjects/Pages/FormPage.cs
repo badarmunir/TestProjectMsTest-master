@@ -37,27 +37,27 @@ namespace TestProjectMsTest.PageObjects
 
         public FormPage SetFirstName(string firstName)
         {
-            elem_Firstname.SendKeys(firstName);
+            CustomSetMethods.EnterText(elem_Firstname, firstName);
              return this;
         }
         public FormPage SetLastName(string lastName)
         {
-            elem_Lastname.SendKeys(lastName);
+            CustomSetMethods.EnterText(elem_Lastname, lastName);
              return this;
         }
         public FormPage SetGenderMale()
         {
-            elem_Gender_Male.Click();
-             return this;
+            CustomSetMethods.Clicks(elem_Gender_Male,false);
+            return this;
         }
         public FormPage SetUserNumber(string userNumber)
         {
-            elem_UserNumber.SendKeys(userNumber);
-             return this;
+            CustomSetMethods.EnterText(elem_UserNumber, userNumber);
+            return this;
         }
         public FormPage Submit()
         {
-            elem_Submit.SendKeys(Keys.Enter);
+            CustomSetMethods.EnterText(elem_Submit, Keys.Enter);
             return this;
         }
 
